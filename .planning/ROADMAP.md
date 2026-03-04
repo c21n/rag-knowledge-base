@@ -50,7 +50,22 @@
 - Chunking strategy may need tuning
 - File parsing edge cases (corrupted PDFs, etc.)
 
-**Plans in this phase:**
+**Plans in this phase:** 5 plans
+
+| Plan | File | Objective | Requirements |
+|------|------|-----------|--------------|
+| 01 | `01-01-PLAN.md` | Project setup and environment | Infrastructure |
+| 02 | `01-02-PLAN.md` | Database and ChromaDB setup | VEC-03, persistence |
+| 03 | `01-03-PLAN.md` | Document upload API | DOC-01~04, API-03~05 |
+| 04 | `01-04-PLAN.md` | Document parsing and chunking | DOC-05~08 |
+| 05 | `01-05-PLAN.md` | Embedding generation pipeline | VEC-01~04, API-06~07 |
+
+**Execution Waves:**
+```
+Wave 1: Plan 01 (setup)
+Wave 2: Plans 02, 03, 04 (parallel - independent)
+Wave 3: Plan 05 (depends on 04 for chunks)
+```
 1. Project setup and environment
 2. Database and ChromaDB setup
 3. Document upload API
