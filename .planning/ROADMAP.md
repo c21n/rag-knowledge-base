@@ -98,13 +98,22 @@ Wave 3: Plan 05 (depends on 04 for chunks)
 - LLM API rate limits and costs
 - Prompt engineering iterations
 
-**Plans in this phase:**
-1. RAG chain implementation
-2. LLM integration and prompt templates
-3. Chat API endpoint
-4. Role management system
-5. Conversation history storage
-6. API testing and validation
+NJ|**Plans in this phase:** 5 plans
+YQ|
+ZJ|| Plan | File | Objective | Requirements |
+MQ||------|------|-----------|--------------|
+PH|| 01 | `02-01-PLAN.md` | RAG chain and LLM integration | RAG-01~03, RAG-05 |
+RP|| 02 | `02-02-PLAN.md` | Role management system | ROL-01~05 |
+QB|| 03 | `02-03-PLAN.md` | Chat API endpoint | API-01, RAG-04 |
+MN|| 04 | `02-04-PLAN.md` | Conversation history storage | CHT-01~04, API-02 |
+HK|| 05 | `02-05-PLAN.md` | API testing and validation | API-03~05 |
+RJ|
+ZQ|**Execution Waves:**
+WV|```
+WS|Wave 1: Plans 01, 02 (parallel - independent)
+XX|Wave 2: Plans 03, 04 (parallel - depend on Wave 1)
+KX|Wave 3: Plan 05 (integration testing)
+JT|```
 
 ---
 
@@ -165,14 +174,23 @@ Wave 3: Plan 05 (depends on 04 for chunks)
 - Environment variable handling
 - Cross-platform compatibility
 
-**Plans in this phase:**
-1. Backend Dockerfile
-2. Frontend Dockerfile with Nginx
-3. Docker Compose configuration
-4. Environment template and docs
-5. README writing
-6. End-to-end deployment test
+**Plans in this phase:** 6 plans
 
+| Plan | File | Objective | Requirements |
+|------|------|-----------|--------------|
+| 01 | `04-01-PLAN.md` | Backend Dockerfile | DEP-01 |
+| 02 | `04-02-PLAN.md` | Frontend Dockerfile with Nginx | DEP-01 |
+| 03 | `04-03-PLAN.md` | Docker Compose configuration | DEP-02, DEP-03 |
+| 04 | `04-04-PLAN.md` | Environment setup scripts | DEP-03 |
+| 05 | `04-05-PLAN.md` | README documentation | DEP-04 |
+| 06 | `04-06-PLAN.md` | End-to-end deployment test | DEP-01~04 |
+
+**Execution Waves:**
+```
+Wave 1: Plans 01, 02 (parallel - independent)
+Wave 2: Plans 03, 04, 05 (parallel - depend on Wave 1)
+Wave 3: Plan 06 (depends on all prior, has human checkpoint)
+```
 ---
 
 ## Dependencies
