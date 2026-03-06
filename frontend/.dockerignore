@@ -41,7 +41,6 @@ coverage/
 # Docker
 Dockerfile
 .dockerignore
-nginx.conf
 
 # Vite
 .vite/
