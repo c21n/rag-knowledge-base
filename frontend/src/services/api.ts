@@ -4,7 +4,7 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000
 export interface ApiError {
   message: string;
   status: number;
-  data?: any;
+  data?: unknown;
 }
 
 export class ApiClient {
@@ -44,7 +44,7 @@ export class ApiClient {
     return this.handleResponse<T>(response);
   }
   
-  async post<T>(path: string, body: any): Promise<T> {
+  async post<T>(path: string, body: unknown): Promise<T> {
     const response = await fetch(`${this.baseUrl}${path}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

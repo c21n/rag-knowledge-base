@@ -3,6 +3,7 @@
  * Main chat interface with message list, input area, and error handling
  */
 import React, { useRef, useEffect, useState } from 'react';
+import type { InputRef } from 'antd';
 import {
   Card,
   Input,
@@ -29,7 +30,7 @@ export const ChatInterface: React.FC = () => {
   const { messages, loading, error, sendMessage, clearMessages, clearError } = useChat();
   const [inputValue, setInputValue] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const textareaRef = useRef<any>(null);
+  const textareaRef = useRef<InputRef>(null);
 
   /**
    * Auto-scroll to bottom when new messages arrive
