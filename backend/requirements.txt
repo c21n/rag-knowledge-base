@@ -20,7 +20,7 @@ chromadb==0.4.15
 # Document processing
 pypdf2==3.0.1
 python-docx==1.1.0
-python-markdown>=3.5.1
+markdown>=3.5.1
 
 # Database ORM and migrations
 sqlalchemy==2.0.23
