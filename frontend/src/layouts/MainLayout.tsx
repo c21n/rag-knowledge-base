@@ -8,7 +8,8 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from '@ant-design/icons';
-import { useAppContext } from '../context/AppContext';
+import { useAppContext } from '../hooks/useAppContext';
+import type { ViewType } from '../types/view';
 import { RoleSelector } from '../components/RoleSelector';
 
 const { Header, Sider, Content } = Layout;
@@ -44,17 +45,14 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       icon: <HistoryOutlined />,
       label: '历史',
     },
-    {
-      key: 'documents',
-      icon: <FileTextOutlined />,
-      label: 'Documents',
-    },
-    {
-      key: 'history',
-      icon: <HistoryOutlined />,
-      label: 'History',
-    },
   ];
+
+  const handleMenuClick = ({ key }: { key: string }) => {
+    const validViews: ViewType[] = ['chat', 'documents', 'history'];
+    if (validViews.includes(key as ViewType)) {
+      setActiveView(key as ViewType);
+    }
+  };
   
   return (
     <Layout style={{ minHeight: '100vh' }}>
@@ -91,7 +89,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           mode="inline"
           selectedKeys={[activeView]}
           items={menuItems}
-          onClick={({ key }) => setActiveView(key as any)}
+          onClick={handleMenuClick}
           style={{ borderRight: 0 }}
         />
         

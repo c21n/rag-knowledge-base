@@ -37,7 +37,7 @@ export const FeedbackButton: React.FC<FeedbackButtonProps> = ({
       message.success('感谢您的反馈！');
       setIsModalVisible(false);
       form.resetFields();
-    } catch (err) {
+    } catch {
       message.error('提交反馈失败');
     } finally {
       setLoading(false);
