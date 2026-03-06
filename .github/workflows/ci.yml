@@ -80,7 +80,7 @@ jobs:
     
     - name: Build Docker images
       run: |
-        docker-compose config
-        docker-compose build --no-cache
+        docker compose config
+        docker compose build --no-cache
       env:
         OPENAI_API_KEY: test-key
