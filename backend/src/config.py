@@ -1,6 +1,7 @@
 """Configuration management for the RAG Knowledge Base API."""
 
 from functools import lru_cache
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -8,15 +9,19 @@ class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=str(Path(__file__).parent.parent / ".env"),
         env_file_encoding="utf-8",
         case_sensitive=False,
+        extra="allow",  # Allow extra fields like EMBEDDING_API_KEY
     )
 
     # OpenAI API Configuration (supports Alibaba Bailian)
     OPENAI_API_KEY: str = "your_openai_api_key_here"
     OPENAI_BASE_URL: str = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     OPENAI_EMBEDDING_MODEL: str = "text-embedding-v1"
+    
+    # Dedicated Embedding API Key (for models not supported by Coding Plan)
+    EMBEDDING_API_KEY: str = ""  # Falls back to OPENAI_API_KEY if not set
 
     # Database Configuration
     DATABASE_URL: str = "sqlite:///./data/app.db"

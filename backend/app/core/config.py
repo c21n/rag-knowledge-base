@@ -19,6 +19,12 @@ class Settings(BaseSettings):
     # Allowed file types
     ALLOWED_EXTENSIONS: list = [".pdf", ".docx", ".md", ".txt"]
     
+    # CORS settings
+    CORS_ORIGINS: list = ["http://localhost:5173", "http://localhost", "http://127.0.0.1:5173"]
+    CORS_ALLOW_CREDENTIALS: bool = True
+    CORS_ALLOW_METHODS: list = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    CORS_ALLOW_HEADERS: list = ["*"]
+    
     class Config:
         env_file = ".env"
         case_sensitive = True

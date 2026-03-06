@@ -14,6 +14,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.models.database import Base
 from src.models.document import Document  # Ensure models are imported
+from src.models.conversation import Conversation, Message  # Import conversation models
+from src.config import get_settings
+from src.models.document import Document  # Ensure models are imported
 from src.config import get_settings
 
 # Alembic Config object

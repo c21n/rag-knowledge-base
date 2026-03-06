@@ -20,18 +20,20 @@ class EmbeddingService:
         Initialize the embedding service.
         
         Args:
-            api_key: OpenAI API key (defaults to OPENAI_API_KEY env var)
+            api_key: OpenAI API key (defaults to EMBEDDING_API_KEY or OPENAI_API_KEY env var)
             base_url: API base URL (defaults to OPENAI_BASE_URL env var or OpenAI default)
         """
         from src.config import get_settings
+        import os
         settings = get_settings()
         
-        self.api_key = api_key or settings.OPENAI_API_KEY
+        # Use dedicated embedding API key if available, fallback to general key
+        self.api_key = api_key or settings.EMBEDDING_API_KEY or settings.OPENAI_API_KEY
         self.base_url = base_url or settings.OPENAI_BASE_URL
         self.model = settings.OPENAI_EMBEDDING_MODEL
         
         if not self.api_key:
-            logger.warning("OPENAI_API_KEY not set. Embeddings will fail.")
+            logger.warning("EMBEDDING_API_KEY not set. Embeddings will fail.")
         
         # Import here to avoid dependency issues during initialization
         try:

@@ -24,6 +24,9 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # Create declarative base for models
 Base = declarative_base()
 
+# Import models AFTER Base is defined to register them
+from src.models.conversation import Conversation, Message  # noqa: E402
+
 
 def get_db():
     """Dependency function for FastAPI to get database session.
