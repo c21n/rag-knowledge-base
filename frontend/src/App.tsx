@@ -1,6 +1,7 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
-import { AppProvider, useAppContext } from './context/AppContext';
+import { AppProvider } from './context/AppProvider';
+import { useAppContext } from './hooks/useAppContext';
 import { MainLayout } from './layouts/MainLayout';
 import { ChatInterface } from './components/ChatInterface';
 import DocumentUpload from './components/DocumentUpload';
